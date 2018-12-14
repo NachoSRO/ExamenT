@@ -1,0 +1,65 @@
+{% extends 'layouts/layout_base.html' %}
+
+{% block title %}
+    Productos
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-9">
+            <span class="badge badge-primary bag-mascotas">Vendedores</span>
+        </div>
+        <div class="col-lg-3">
+            <a href="{% url 'producto_crear' %}"><button class="btn btn-warning btn-lg" id="btn-mascotas">Agregar vendedor</button></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+        <table class="table table-bordered  table-masc">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">edad</th>
+                <th scope="col">correo</th>
+                <th scope="col">tienda</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %}
+            {% for vendedor in object_list%}
+            <tr>
+                <td class="table-light">{{ vendedor.id }}</td>
+                <td class="table-light">{{ vendedor.nombres }}</td>
+                <td class="table-light">{{ vendedor.apellidos }}</td>
+                <td class="table-light">{{ vendedor.edad }}</td>
+                <td class="table-light">{{ vendedor.correo }}</td>
+                <td class="table-light">{{ vendedor.tienda }}</td>
+                <td class="table-light text-center"><a class="btn btn-primary" href="{% url 'vendedor_editar' vendedor.id %}">Editar</a></td>
+                <td class="table-light text-center"><a class="btn btn-danger" href="{% url 'vendedor_eliminar' vendedor.id %}">Eliminar</a></td>
+
+            </tr>
+            {% endfor %}
+
+            {% else %}
+                <th>Sin Registros</th>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3">
+                        <div class="alert alert-dismissible alert-secondary" id="alert">
+                  <h4 class="alert-heading">Alerta!</h4>
+                  <p class="mb-0">No hay registro de vendedores</p>
+                </div>
+                    </div>
+                </div>
+            {% endif %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+
+    {% endblock content %}
