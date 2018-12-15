@@ -8,10 +8,10 @@
 
     <div class="row">
         <div class="col-lg-9">
-            <span class="badge badge-primary bag-mascotas">Vendedores</span>
+            <span class="badge badge-primary">Vendedores</span>
         </div>
         <div class="col-lg-3">
-            <a href="{% url 'producto_crear' %}"><button class="btn btn-warning btn-lg" id="btn-mascotas">Agregar vendedor</button></a>
+            <a href="{% url 'vendedor_crear' %}"><button class="btn btn-warning btn-lg">Agregar vendedor</button></a>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
         <table class="table table-bordered  table-masc">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Rut</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">edad</th>
@@ -34,14 +34,14 @@
             {% if object_list %}
             {% for vendedor in object_list%}
             <tr>
-                <td class="table-light">{{ vendedor.id }}</td>
+                <td class="table-light">{{ vendedor.rut }}</td>
                 <td class="table-light">{{ vendedor.nombres }}</td>
                 <td class="table-light">{{ vendedor.apellidos }}</td>
                 <td class="table-light">{{ vendedor.edad }}</td>
                 <td class="table-light">{{ vendedor.correo }}</td>
                 <td class="table-light">{{ vendedor.tienda }}</td>
-                <td class="table-light text-center"><a class="btn btn-primary" href="{% url 'vendedor_editar' vendedor.id %}">Editar</a></td>
-                <td class="table-light text-center"><a class="btn btn-danger" href="{% url 'vendedor_eliminar' vendedor.id %}">Eliminar</a></td>
+                <td class="table-light text-center"><a class="btn btn-primary" href="{% url 'vendedor_editar' vendedor.rut %}">Editar</a></td>
+                <td class="table-light text-center"><a class="btn btn-danger" href="{% url 'vendedor_eliminar' vendedor.rut %}">Eliminar</a></td>
 
             </tr>
             {% endfor %}

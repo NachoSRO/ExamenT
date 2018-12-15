@@ -1,2 +1,23 @@
 {% extends 'layouts/layout_base.html' %}
 
+{% block content %}
+    <div class="container-fluid container-index">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="jumbotron text-center">
+                  <h1 class="display-4">Nueva Venta</h1>
+                  <p class="lead"><a href="{% url 'venta_crear' %}"><span style="font-size: 5rem"><i class="fas fa-cart-plus"></i></span></a></p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="jumbotron">
+                  <h1 class="display-4">Ultimas Ofertas</h1>
+                  <p class="lead"></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+

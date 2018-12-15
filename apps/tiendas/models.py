@@ -25,6 +25,9 @@ class Tienda(models.Model):
     comuna = models.CharField(max_length=15)
     dirección = models.CharField(max_length=30)
 
+    def __str__(self):
+        return '{}'.format(self.nombre)
+
 class Vendedor(models.Model):
     rut = models.CharField(primary_key=True, max_length=12)
     nombres = models.CharField(max_length=40)

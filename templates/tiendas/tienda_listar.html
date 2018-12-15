@@ -1,17 +1,17 @@
 {% extends 'layouts/layout_base.html' %}
 
 {% block title %}
-    Productos
+    Tiendas
 {% endblock %}
 
 {% block content %}
 
     <div class="row">
         <div class="col-lg-9">
-            <span class="badge badge-primary">Producto</span>
+            <span class="badge badge-primary">Tiendas</span>
         </div>
         <div class="col-lg-3">
-            <a href="{% url 'producto_crear' %}"><button class="btn btn-warning btn-lg">Agregar Producto</button></a>
+            <a href="{% url 'producto_crear' %}"><button class="btn btn-warning btn-lg">Agregar Tiendas</button></a>
         </div>
     </div>
 
@@ -22,22 +22,22 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Precio ($)</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Comuna</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
         </thead>
         <tbody>
             {% if object_list %}
-            {% for producto in object_list%}
+            {% for tienda in object_list%}
             <tr>
-                <td class="table-light">{{ producto.id }}</td>
-                <td class="table-light">{{ producto.nombre }}</td>
-                <td class="table-light">{{ producto.stock }}</td>
-                <td class="table-light">{{ producto.precio }}</td>
-                <td class="table-light text-center"><a class="btn btn-primary" href="{% url 'producto_editar' producto.id %}">Editar</a></td>
-                <td class="table-light text-center"><a class="btn btn-danger" href="{% url 'producto_eliminar' producto.id %}">Eliminar</a></td>
+                <td class="table-light">{{ tienda.id }}</td>
+                <td class="table-light">{{ tienda.nombre }}</td>
+                <td class="table-light">{{ tienda.ciudad }}</td>
+                <td class="table-light">{{ tienda.comuna }}</td>
+                <td class="table-light text-center"><a class="btn btn-primary" href="{% url 'producto_editar' tienda.id %}">Editar</a></td>
+                <td class="table-light text-center"><a class="btn btn-danger" href="{% url 'producto_eliminar' tienda.id %}">Eliminar</a></td>
 
             </tr>
             {% endfor %}
@@ -48,7 +48,7 @@
                     <div class="col-lg-3 col-sm-3">
                         <div class="alert alert-dismissible alert-secondary" id="alert">
                   <h4 class="alert-heading">Alerta!</h4>
-                  <p class="mb-0">No hay registro de Productos actualmente</p>
+                  <p class="mb-0">No hay Tiendas registradas actualmente</p>
                 </div>
                     </div>
                 </div>

@@ -1,0 +1,60 @@
+{% extends 'layouts/layout_base.html' %}
+
+{% block title %}
+    Tiendas
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-9">
+            <span class="badge badge-primary">Tiendas</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+        <table class="table table-bordered  table-masc">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+                <th scope="col">Rut Vendedor</th>
+                <th scope="col">Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %}
+            {% for venta in object_list%}
+            <tr>
+                <td class="table-light">{{ venta.numero }}</td>
+                <td class="table-light">{{ venta.fecha }}</td>
+                <td class="table-light">{{ venta.cantidad }}</td>
+                <td class="table-light">{{ venta.total }}</td>
+                <td class="table-light">{{ venta.rut_vendedor }}</td>
+                <td class="table-light">{{ venta.comentario }}</td>
+                <td class="table-light">{{ venta.comuna }}</td>
+
+            </tr>
+            {% endfor %}
+
+            {% else %}
+                <th>Sin Registros</th>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3">
+                        <div class="alert alert-dismissible alert-secondary" id="alert">
+                  <h4 class="alert-heading">Alerta!</h4>
+                  <p class="mb-0">No hay registros de Ventas</p>
+                </div>
+                    </div>
+                </div>
+            {% endif %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+
+    {% endblock content %}

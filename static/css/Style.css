@@ -1,0 +1,34 @@
+/*=============================================================
+                            CLASES
+=============================================================== */
+
+/* TEMPLATE USES: index.html */
+
+.container-index{
+
+    margin: 50px;
+}
+
+/* TEMPLATE USES: venta_form.html */
+
+.form{
+
+    box-shadow: 1px 1px 7px 1px #000;
+    border: 1px solid #000;
+    margin: 20px;
+    padding: 20px 20px ;
+}
+
+.bag-form{
+
+    position: center!important;
+    font-size: 250%!important;
+    margin: 20px;
+
+}
+
+.bag-listar{
+
+    font-size: 200% !important;
+    margin: 20px;
+}
